@@ -15,6 +15,6 @@ func CloneInkvatSnapshot(s model.PlantSnapshot) InkvatSnapshotView {
 		Inkvat:     s.Inkvat,
 		Revision: s.Revision,
 	}
-	out.Alarms = s.Alarms[:len(s.Alarms):len(s.Alarms)]
+	out.Alarms = append([]model.AlarmEvent(nil), s.Alarms...)
 	return out
 }
