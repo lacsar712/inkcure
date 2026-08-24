@@ -33,7 +33,7 @@ func (a *App) SolventAfterShutdown(ctx context.Context, openingPct float64) erro
 		return fmt.Errorf("plant not shut down")
 	}
 	if openingPct >= maxSolventOpeningPct {
-		return fmt.Errorf("unknown fault")
+		return fmt.Errorf("solvent: %w", model.ErrSolventLimit)
 	}
 	return nil
 }
