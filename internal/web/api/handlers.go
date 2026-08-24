@@ -100,6 +100,10 @@ func (s *Server) handleResetTrip(w http.ResponseWriter, r *http.Request) {
 
 func (s *Server) handleInkvatLevel(w http.ResponseWriter, r *http.Request) {
 	if err := s.app.CheckInkvatLevel(s.app.Snapshot()); err != nil {
+		if code, ok := classifyInkvatError(err); ok {
+			writeErrCode(w, http.StatusConflict, code)
+			return
+		}
 		writeErr(w, http.StatusConflict, fmt.Errorf("cureline fault: %w", err))
 		return
 	}
