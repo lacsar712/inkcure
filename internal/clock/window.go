@@ -39,7 +39,7 @@ func NewDwellWindow(clk ProcessClock) *DwellWindow {
 }
 
 func (p *DwellWindow) Ready(startedAt time.Time) bool {
-	return time.Since(startedAt) >= model.DwellWindow
+	return p.window.Satisfied(p.clk, startedAt)
 }
 
 func (p *DwellWindow) Require(startedAt time.Time) error {
