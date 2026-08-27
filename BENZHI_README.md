@@ -1,6 +1,6 @@
-# HookRelay
+# inkcure
 
-Signed ingress + reliable outbound webhook delivery (retry, circuit breaker, rate limit, DLQ, replay).
+inkcure 是一套 UV 印刷油墨固化线工业过程控制系统，用于灯管组爬坡、粘度监护与灯架租约。
 
 ## Requirements
 
